@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Blackjack</title>
+
+    <script src="lib/jquery-1.8.3.min.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/backbone.js"></script>
+
+    <script type="text/template" id="card-template">
+      <div class="card">
+        <% if(card.get('faceDown')) { %>
+          ???
+        <% } else { %>
+          <p>Suit: <%=card.get('suit')%></p>
+          <p>Value: <%=card.get('value')%></p>
+        <% } %>
+      </div>
+    </script>
+
+    <script src="js/blackjack.js"></script>
+
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen">
+
+  </head>
+  <body>
+    <h1>Coffeescript Blackjack!</h1>
+
+    <div class="blackjack-table">
+    </div>
+
+    <h2>Dealer's cards</h2>
+    <div class="cards dealer-cards">
+    </div>
+
+    <h2>Your cards</h2>
+    <div class="cards player-cards">
+    </div>
+    <h2>Score</h2>
+    <p>Dealer: <span class="dealer-score">0</span></p>
+    <p>You: <span class="player-score">0</span></p>
+    <h2>Things to do</h2>
+    <button class="reset-button">Start over</button>
+    <button class="hit-button">Hit</button>
+    <button class="stand-button">Stand</button>
+
+    <script type="text/javascript">
+      // Instantiate a blackjack view for the entire page.
+      var blackjackView = new BlackjackView({
+        el: window.document.body
+      });
+      // blackjackView.deck = new Deck()
+      // var cardmodel = new Card({suit:"hearts", value:"5"});
+      // var card = new CardView({model: cardmodel});
+      // console.log(card, cardmodel)
+      // $(".player-cards").append(card.$el);
+    </script>
+
+
+  </body>
+</html>
